@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&display=swap&subset=latin,latin-ext" rel="stylesheet">
 <style>
   html, body { margin: 0; background: #161514; -webkit-font-smoothing: antialiased; overflow: hidden; }
-  * { scrollbar-width: none; -ms-overflow-style: none; }
+  * { scrollbar-width: none; -ms-overflow-style: none; -webkit-tap-highlight-color: transparent; }
   *::-webkit-scrollbar { width: 0; height: 0; display: none; }
   a { color: #E0623A; }
   a:hover { color: #2B2723; }
@@ -99,8 +99,8 @@
     <a class="rsvplink" href="mailto:maria.bielikova@kinit.sk?subject=RSVP%20—%20September%2011%2C%202026" style="font-size: clamp(17px, min(4.6vw, 5dvh), 36px); margin-top: 1.6vh; color: #E0623A; text-decoration: none; border-bottom: 1px solid rgba(224,98,58,0.45); padding-bottom: 4px;">maria.bielikova@kinit.sk</a>
   </div>
 
-  <div id="prev" role="button" aria-label="Predchádzajúce" style="position: absolute; left: 0; top: 0; bottom: 72px; width: 15%; max-width: 140px; z-index: 5; cursor: pointer; display: flex; align-items: center; justify-content: flex-start; padding-left: 10px; color: #2B2723; font-size: 30px; opacity: 0.18; transition: opacity .25s;">‹</div>
-  <div id="next" role="button" aria-label="Ďalšie" style="position: absolute; right: 0; top: 0; bottom: 72px; width: 15%; max-width: 140px; z-index: 5; cursor: pointer; display: flex; align-items: center; justify-content: flex-end; padding-right: 10px; color: #2B2723; font-size: 30px; opacity: 0.18; transition: opacity .25s;">›</div>
+  <div id="prev" role="button" aria-label="Predchádzajúce" style="position: absolute; left: 0; top: 0; bottom: 72px; width: 15%; max-width: 140px; z-index: 5; cursor: pointer; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; display: flex; align-items: center; justify-content: flex-start; padding-left: 10px; color: #2B2723; font-size: 30px; opacity: 0.18; transition: opacity .25s;">‹</div>
+  <div id="next" role="button" aria-label="Ďalšie" style="position: absolute; right: 0; top: 0; bottom: 72px; width: 15%; max-width: 140px; z-index: 5; cursor: pointer; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; display: flex; align-items: center; justify-content: flex-end; padding-right: 10px; color: #2B2723; font-size: 30px; opacity: 0.18; transition: opacity .25s;">›</div>
  </div>
   <div style="flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 12px 16px 20px;">
     <button id="play" style="border: none; background: none; padding: 6px 10px; cursor: pointer; color: #2B2723; font-size: 19px; line-height: 1; letter-spacing: 0.1em; transition: opacity .25s; font-family: 'Lora', serif;"></button>
