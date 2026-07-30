@@ -4,11 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
+<!-- Not in the Claude Design source: this page is cream and ink, and a browser
+     that algorithmically inverts it looks awful. Samsung Internet's "Adaptive
+     Force Dark" keys off this meta tag specifically and skips pages that carry
+     it; Chrome Android's Auto Dark Theme honours the CSS below. Older Samsung
+     Internet ignores both by design — there is no page-side fix for those. -->
+<meta name="color-scheme" content="light">
 <title>Pozvánka — Majka 60</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&display=swap&subset=latin,latin-ext" rel="stylesheet">
 <style>
+  /* Two declarations, not one: browsers that do not understand the `only`
+     keyword drop that whole line and keep the plain `light` above it. */
+  :root { color-scheme: light; color-scheme: only light; }
   html, body { margin: 0; background: #161514; -webkit-font-smoothing: antialiased; overflow: hidden; }
   * { scrollbar-width: none; -ms-overflow-style: none; -webkit-tap-highlight-color: transparent; }
   *::-webkit-scrollbar { width: 0; height: 0; display: none; }
