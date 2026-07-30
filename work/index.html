@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Pozvánka — Majka 60</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&display=swap&subset=latin,latin-ext" rel="stylesheet">
+<style>
+  html, body { margin: 0; background: #F1EBDF; -webkit-font-smoothing: antialiased; }
+  a { color: #E0623A; }
+  a:hover { color: #2B2723; }
+  /* style-hover in the Claude Design source becomes real :hover here.
+     !important because the runtime writes these same properties inline. */
+  #lang:hover { opacity: 1 !important; }
+  #prev:hover, #next:hover { opacity: 0.6 !important; }
+  #play:hover { opacity: 0.9 !important; }
+  .giftlink:hover { color: #E0623A !important; border-bottom-color: #E0623A !important; }
+  .rsvplink:hover { color: #2B2723 !important; border-bottom-color: #2B2723 !important; }
+</style>
+</head>
+<body>
+<div style="height: 100dvh; display: flex; flex-direction: column; background: #F1EBDF; color: #2B2723; font-family: 'Lora', Georgia, 'Times New Roman', serif; overflow: hidden; position: relative;">
+  <button id="lang" style="position: absolute; top: 20px; right: 26px; z-index: 20; border: none; background: none; padding: 2px 0; cursor: pointer; font-family: 'Lora', serif; font-size: clamp(13px, 1.6vw, 17px); font-style: italic; color: #E0623A; opacity: 0.75; border-bottom: 1px solid rgba(224,98,58,0.4); transition: opacity .25s;"></button>
+ <div style="flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; padding: 16px 0 0;">
+
+  <div id="s-text" style="width: 100%; max-width: 1000px; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <div id="videobox" style="position: relative; flex: 0 0 auto; width: min(92vw, 44dvh); aspect-ratio: 1 / 1; overflow: hidden; background: #F1EBDF; isolation: isolate;">
+      <div style="position: absolute; inset: 0; pointer-events: none; box-shadow: inset 0 0 0 3px #F1EBDF; z-index: 2;"></div>
+    </div>
+    <div id="textbox" style="flex: 1 1 auto; min-height: 0; width: 100%; display: flex; align-items: center; justify-content: center; padding: 3vh 6vw 0; box-sizing: border-box;">
+      <div id="words" style="text-align: center; max-width: 860px; max-height: 100%; line-height: 1.4; letter-spacing: 0.005em; text-wrap: pretty;"></div>
+    </div>
+  </div>
+
+  <div id="s-date-sk" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 7vw; max-height: 100%; box-sizing: border-box; overflow-y: auto;">
+    <div style="width: 132px; height: 5px; border-radius: 3px; background: #E0623A;"></div>
+    <div style="font-size: clamp(46px, 11.5vw, 104px); line-height: 1.05; margin-top: 6vh;">11. septembra 2026</div>
+    <div style="font-size: clamp(26px, 6.4vw, 58px); font-style: italic; color: #E0623A; margin-top: 2.2vh;">o 16.00 hod</div>
+    <div style="font-size: clamp(34px, 8vw, 72px); line-height: 1.1; margin-top: 8vh;">The Spot</div>
+    <div style="font-size: clamp(21px, 5vw, 44px); opacity: 0.72; margin-top: 1.6vh;">Bottova 2A, terasa (8. poschodie)</div>
+    <div style="font-size: clamp(18px, 4vw, 32px); opacity: 0.6; margin-top: 1vh;">Bratislava</div>
+    <div style="width: 132px; height: 5px; border-radius: 3px; background: #E0623A; margin-top: 7vh;"></div>
+  </div>
+
+  <div id="s-date-en" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 7vw; max-height: 100%; box-sizing: border-box; overflow-y: auto;">
+    <div style="width: 132px; height: 5px; border-radius: 3px; background: #E0623A;"></div>
+    <div style="font-size: clamp(46px, 11.5vw, 104px); line-height: 1.05; margin-top: 6vh;">September 11, 2026</div>
+    <div style="font-size: clamp(26px, 6.4vw, 58px); font-style: italic; color: #E0623A; margin-top: 2.2vh;">at 4:00 p.m.</div>
+    <div style="font-size: clamp(34px, 8vw, 72px); line-height: 1.1; margin-top: 8vh;">The Spot</div>
+    <div style="font-size: clamp(21px, 5vw, 44px); opacity: 0.72; margin-top: 1.6vh;">Bottova 2A, rooftop terrace (8th floor)</div>
+    <div style="font-size: clamp(18px, 4vw, 32px); opacity: 0.6; margin-top: 1vh;">Bratislava</div>
+    <div style="width: 132px; height: 5px; border-radius: 3px; background: #E0623A; margin-top: 7vh;"></div>
+  </div>
+
+  <div id="s-gift-sk" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 7vw; max-height: 100%; box-sizing: border-box; overflow-y: auto; max-width: 860px;">
+    <div style="font-size: clamp(22px, 4.8vw, 38px); line-height: 1.5; text-wrap: pretty;">Mám všetko, čo by som si mohla priať a aj oveľa viac. Preto by som bola veľmi vďačná, keby</div>
+    <div style="font-size: clamp(26px, 5.8vw, 46px); line-height: 1.35; font-style: italic; color: #E0623A; margin-top: min(2.4vh, 18px); text-wrap: pretty;">môj narodeninový dar bol darom nás všetkých.</div>
+    <div style="width: 132px; height: 5px; border-radius: 3px; background: rgba(43,39,35,0.18); margin-top: min(5vh, 34px);"></div>
+    <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 0 0.5em; margin-top: min(5vh, 34px); font-size: clamp(34px, 7.6vw, 62px); line-height: 1.25;">
+      <a class="giftlink" href="https://cestavon.darujme.sk/p2p/narodeninova-zbierka-pre-omamy-maria-bielikova/" target="_blank" rel="noopener" style="color: #2B2723; text-decoration: none; border-bottom: 2px solid rgba(224,98,58,0.5); padding-bottom: 2px;">Omamy</a>
+      <span style="opacity: 0.35; font-style: italic; font-size: 0.62em;">a</span>
+      <a class="giftlink" href="https://dasato.darujme.sk/p2p/narodeninova-zbierka-pre-dasato/" target="_blank" rel="noopener" style="color: #2B2723; text-decoration: none; border-bottom: 2px solid rgba(224,98,58,0.5); padding-bottom: 2px;">Dasato</a>
+    </div>
+    <div style="font-size: clamp(17px, 3.4vw, 26px); line-height: 1.5; opacity: 0.66; margin-top: min(3.4vh, 24px); max-width: 620px; text-wrap: pretty;">Dva výnimočné projekty. Klikni na ktorýkoľvek z nich a premeň kúsok našej cesty na nádej pre druhých.</div>
+  </div>
+
+  <div id="s-gift-en" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 7vw; max-height: 100%; box-sizing: border-box; overflow-y: auto; max-width: 860px;">
+    <div style="font-size: clamp(22px, 4.8vw, 38px); line-height: 1.5; text-wrap: pretty;">I have everything I could wish for and so much more. Instead of a birthday gift for me, I would be truly grateful if</div>
+    <div style="font-size: clamp(26px, 5.8vw, 46px); line-height: 1.35; font-style: italic; color: #E0623A; margin-top: min(2.4vh, 18px); text-wrap: pretty;">we could make it a gift from all of us.</div>
+    <div style="width: 132px; height: 5px; border-radius: 3px; background: rgba(43,39,35,0.18); margin-top: min(5vh, 34px);"></div>
+    <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 0 0.5em; margin-top: min(5vh, 34px); font-size: clamp(34px, 7.6vw, 62px); line-height: 1.25;">
+      <a class="giftlink" href="https://cestavon.darujme.sk/p2p/narodeninova-zbierka-pre-omamy-maria-bielikova/" target="_blank" rel="noopener" style="color: #2B2723; text-decoration: none; border-bottom: 2px solid rgba(224,98,58,0.5); padding-bottom: 2px;">Omamy</a>
+      <span style="opacity: 0.35; font-style: italic; font-size: 0.62em;">and</span>
+      <a class="giftlink" href="https://dasato.darujme.sk/p2p/narodeninova-zbierka-pre-dasato/" target="_blank" rel="noopener" style="color: #2B2723; text-decoration: none; border-bottom: 2px solid rgba(224,98,58,0.5); padding-bottom: 2px;">Dasato</a>
+    </div>
+    <div style="font-size: clamp(17px, 3.4vw, 26px); line-height: 1.5; opacity: 0.66; margin-top: min(3.4vh, 24px); max-width: 620px; text-wrap: pretty;">Two remarkable initiatives. Open either one and turn a small part of our shared journey into hope for others.</div>
+  </div>
+
+  <div id="s-thanks-sk" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 7vw; max-height: 100%; box-sizing: border-box; overflow-y: auto;">
+    <div style="font-size: clamp(46px, 11.5vw, 104px); line-height: 1;">Ďakujem</div>
+    <div style="font-size: clamp(30px, 6.8vw, 60px); font-style: italic; color: #E0623A; margin-top: 3vh;">Majka</div>
+    <div style="width: 132px; height: 5px; border-radius: 3px; background: rgba(43,39,35,0.18); margin-top: 7vh;"></div>
+    <div style="font-size: clamp(17px, 3.6vw, 28px); opacity: 0.7; margin-top: 6vh; letter-spacing: 0.06em;">RSVP do 23. 8. 2026</div>
+    <a class="rsvplink" href="mailto:maria.bielikova@kinit.sk?subject=RSVP%20—%2011.%209.%202026" style="font-size: clamp(21px, 4.6vw, 36px); margin-top: 1.6vh; color: #E0623A; text-decoration: none; border-bottom: 1px solid rgba(224,98,58,0.45); padding-bottom: 4px;">maria.bielikova@kinit.sk</a>
+  </div>
+
+  <div id="s-thanks-en" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 7vw; max-height: 100%; box-sizing: border-box; overflow-y: auto;">
+    <div style="font-size: clamp(46px, 11.5vw, 104px); line-height: 1;">Thank you</div>
+    <div style="font-size: clamp(30px, 6.8vw, 60px); font-style: italic; color: #E0623A; margin-top: 3vh;">Majka</div>
+    <div style="width: 132px; height: 5px; border-radius: 3px; background: rgba(43,39,35,0.18); margin-top: 7vh;"></div>
+    <div style="font-size: clamp(17px, 3.6vw, 28px); opacity: 0.7; margin-top: 6vh; letter-spacing: 0.06em;">RSVP by August 23, 2026</div>
+    <a class="rsvplink" href="mailto:maria.bielikova@kinit.sk?subject=RSVP%20—%20September%2011%2C%202026" style="font-size: clamp(21px, 4.6vw, 36px); margin-top: 1.6vh; color: #E0623A; text-decoration: none; border-bottom: 1px solid rgba(224,98,58,0.45); padding-bottom: 4px;">maria.bielikova@kinit.sk</a>
+  </div>
+
+  <div id="prev" role="button" aria-label="Predchádzajúce" style="position: absolute; left: 0; top: 0; bottom: 72px; width: 15%; max-width: 140px; z-index: 5; cursor: pointer; display: flex; align-items: center; justify-content: flex-start; padding-left: 10px; color: #2B2723; font-size: 30px; opacity: 0.18; transition: opacity .25s;">‹</div>
+  <div id="next" role="button" aria-label="Ďalšie" style="position: absolute; right: 0; top: 0; bottom: 72px; width: 15%; max-width: 140px; z-index: 5; cursor: pointer; display: flex; align-items: center; justify-content: flex-end; padding-right: 10px; color: #2B2723; font-size: 30px; opacity: 0.18; transition: opacity .25s;">›</div>
+ </div>
+  <div style="flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 12px 16px 20px;">
+    <button id="play" style="border: none; background: none; padding: 6px 10px; cursor: pointer; color: #2B2723; font-size: 19px; line-height: 1; letter-spacing: 0.1em; transition: opacity .25s; font-family: 'Lora', serif;"></button>
+    <div id="dots" style="display: flex; align-items: center; gap: 9px;"></div>
+  </div>
+
+  <div id="tap" style="display: none; position: fixed; inset: 0; background: rgba(241,235,223,0.94); flex-direction: column; align-items: center; justify-content: center; cursor: pointer; gap: 18px; z-index: 30;">
+    <div style="font-size: clamp(26px, 5vw, 46px);">Pozvánka</div>
+    <div style="font-size: clamp(15px, 2.6vw, 22px); color: #E0623A; letter-spacing: 0.08em;">klikni a spusti →</div>
+  </div>
+</div>
+<script>
+(function () {
+  'use strict';
+
+  var CLIPS = ['../clips/opening.mp4', '../clips/h05.mp4', '../clips/t05_18.mp4', '../clips/h18.mp4',
+           '../clips/t18_35.mp4', '../clips/h35.mp4', '../clips/t35_60.mp4', '../clips/h60.mp4',
+           '../clips/closing.mp4'];
+  var SLIDES_SK = [
+    { kind: 'text', label: 'Ohnivý kôň', clips: [0, 1],
+      text: 'Narodila som sa v roku Ohnivého koňa (1966) na začiatku generácie X ako tretí prírastok mojim milovaným rodičom.',
+      size: 'clamp(19px, 3.5vw, 40px)' },
+    { kind: 'text', label: 'Vnútorný oheň', clips: [2, 3],
+      text: 'Ohnivý kôň miluje slobodu a neustále hľadá nové obzory. Vyzerá to tak, že celých 60 rokov ma poháňal práve tento vnútorný oheň.',
+      size: 'clamp(19px, 3.5vw, 40px)' },
+    { kind: 'text', label: 'Kôň sa vracia', clips: [4, 5],
+      text: 'Dnes, po 60-tich rokoch, sa Ohnivý kôň vracia. A nie je sám. Našiel ma v radosti — v kruhu mojej rodiny, priateľov, kolegov. Aj teba. V radosti z cesty, ktorú sme každý sám a trochu aj spolu, prešli.',
+      size: 'clamp(18px, 3.2vw, 36px)' },
+    { kind: 'text', label: 'Pozvanie', clips: [6, 7, 8], noLoop: true,
+      text: 'Príď osláviť so mnou, že sa naše cesty stretli.',
+      emph: 1.3, italic: true },
+    { kind: 'date', label: 'Kedy a kde', dur: 10 },
+    { kind: 'gift', label: 'Dar', dur: null },
+    { kind: 'thanks', label: 'Ďakujem', dur: null },
+  ];
+  var SLIDES_EN = [
+    { kind: 'text', label: 'Fire Horse', clips: [0, 1],
+      text: 'I was born in the Year of the Fire Horse (1966), at the beginning of Generation X, as the third child of my loving parents.',
+      size: 'clamp(19px, 3.5vw, 40px)' },
+    { kind: 'text', label: 'Inner fire', clips: [2, 3],
+      text: 'The Fire Horse loves freedom and is always searching for new horizons. Looking back, it seems that this inner fire has been driving me throughout my entire life.',
+      size: 'clamp(19px, 3.5vw, 40px)' },
+    { kind: 'text', label: 'The horse returns', clips: [4, 5],
+      text: 'Today, as I turn 60, the Fire Horse returns. And it does not return alone. It found me in joy — surrounded by my family, friends and colleagues. By you. Grateful for the journey each of us has travelled, sometimes on our own, and sometimes together.',
+      size: 'clamp(18px, 3.2vw, 36px)' },
+    { kind: 'text', label: 'Invitation', clips: [6, 7, 8], noLoop: true,
+      text: 'Come celebrate with me that our paths have crossed.',
+      emph: 1.3, italic: true },
+    { kind: 'date', label: 'When and where', dur: 10 },
+    { kind: 'gift', label: 'The gift', dur: null },
+    { kind: 'thanks', label: 'Thank you', dur: null },
+  ];
+
+  // Carried over verbatim from DCLogic.
+  var CPS = 26, HOLD = 3.6, FADE = 0.9, INK = 0.5;
+  var INKC = '#2B2723', FAINT = '#C7BCA6';
+
+  var state = { idx: 0, seq: 0, t: 0, autoAdvance: true, needsTap: false, lang: 'sk', box: null };
+
+  var $ = function (id) { return document.getElementById(id); };
+  var boxEl = $('videobox'), textBoxEl = $('textbox'), wordsEl = $('words'),
+      dotsEl = $('dots'), playEl = $('play'), langEl = $('lang'), tapEl = $('tap');
+
+  var PANELS = {
+    text: $('s-text'),
+    date: { sk: $('s-date-sk'), en: $('s-date-en') },
+    gift: { sk: $('s-gift-sk'), en: $('s-gift-en') },
+    thanks: { sk: $('s-thanks-sk'), en: $('s-thanks-en') }
+  };
+  var ALL_PANELS = [PANELS.text, PANELS.date.sk, PANELS.date.en, PANELS.gift.sk,
+                    PANELS.gift.en, PANELS.thanks.sk, PANELS.thanks.en];
+
+  function slides() { return state.lang === 'en' ? SLIDES_EN : SLIDES_SK; }
+
+  function slideDur(i) {
+    var s = slides()[i];
+    if (s.kind !== 'text') return s.dur;
+    return s.text.length / CPS + HOLD + FADE;
+  }
+
+  function activeClip() {
+    var s = slides()[state.idx];
+    return s.clips ? s.clips[Math.min(state.seq, s.clips.length - 1)] : -1;
+  }
+
+  function clamp01(x) { return Math.max(0, Math.min(1, x)); }
+  function outCubic(x) { return 1 - Math.pow(1 - x, 3); }
+
+  function mix(a, b, t) {
+    var pa = [1, 3, 5].map(function (i) { return parseInt(a.slice(i, i + 2), 16); });
+    var pb = [1, 3, 5].map(function (i) { return parseInt(b.slice(i, i + 2), 16); });
+    var c = pa.map(function (v, i) { return Math.round(v + (pb[i] - v) * t); });
+    return 'rgb(' + c[0] + ',' + c[1] + ',' + c[2] + ')';
+  }
+
+  // Type is fit to the box it lives in rather than to the viewport width, so a
+  // tall narrow phone gets big text on many lines and a short wide window gets
+  // smaller text on few lines — both filling the space they have.
+  function fitFontSize(s) {
+    var box = state.box;
+    if (!box || !s.text) return 22;
+    // One size for every beat on a given screen: solve for the longest text so
+    // all of them share it.
+    var chars = Math.max.apply(null, [12].concat(
+      slides().filter(function (x) { return x.text; }).map(function (x) { return x.text.length; })));
+    var w = Math.max(140, Math.min(860, box.w - 4));
+    var h = Math.max(90, box.h - 6);
+    var fs = Math.sqrt((w * h * 0.6) / (0.72 * chars));
+    var cap = Math.min(h / 2, w / 5.5, 68);
+    return Math.round(Math.max(17, Math.min(cap, fs)));
+  }
+
+  // The source observes a node that sc-if mounts and unmounts, so state.box
+  // only ever holds real measurements. Here the node is permanent and simply
+  // collapses to 0x0 while a non-text slide shows, so zero readings are
+  // ignored to keep the same behaviour.
+  var ro = new ResizeObserver(function (es) {
+    var r = es[0].contentRect;
+    if (r.width > 0 && r.height > 0) state.box = { w: r.width, h: r.height };
+  });
+  ro.observe(textBoxEl);
+  (function () {
+    var r = textBoxEl.getBoundingClientRect();
+    if (r.width > 0 && r.height > 0) state.box = { w: r.width, h: r.height };
+  })();
+
+  // --- videos: created exactly once. Re-creating them would reset playback.
+  var vids = CLIPS.map(function (src) {
+    var v = document.createElement('video');
+    v.src = src;
+    v.muted = true;
+    v.setAttribute('muted', '');
+    v.playsInline = true;
+    v.setAttribute('playsinline', '');
+    v.preload = 'auto';
+    v.style.cssText = 'position:absolute;left:-4px;top:-4px;width:calc(100% + 8px);' +
+      'height:calc(100% + 8px);object-fit:cover;display:block;transform:translateZ(0);' +
+      'backface-visibility:hidden;opacity:0';
+    v.addEventListener('ended', onEnded);
+    boxEl.appendChild(v);
+    return v;
+  });
+
+  var everPlayed = false, playedClip = null, playedIdx = null;
+
+  function syncVideo(restart) {
+    var ci = activeClip();
+    playedClip = ci;
+    playedIdx = state.idx;
+    vids.forEach(function (v, i) {
+      v.muted = true;
+      if (i === ci) {
+        if (restart || v.paused) { try { v.currentTime = 0; } catch (e) {} }
+        var p = v.play();
+        if (p && p.then) {
+          p.then(function () { everPlayed = true; }, function () {
+            if (!everPlayed) { state.needsTap = true; }
+          });
+        }
+      } else if (!v.paused) {
+        v.pause();
+      }
+    });
+  }
+
+  function maybeSyncVideo() {
+    var ci = activeClip();
+    if (playedClip !== ci || playedIdx !== state.idx) {
+      var restart = playedIdx !== state.idx;
+      playedClip = ci;
+      playedIdx = state.idx;
+      syncVideo(restart);
+    }
+  }
+
+  function onEnded() {
+    var s = slides()[state.idx];
+    if (!s.clips) return;
+    if (state.seq < s.clips.length - 1) state.seq += 1;
+    else if (!s.noLoop) syncVideo(true); // outro slides hold their last frame
+  }
+
+  function go(i, manual) {
+    var idx = Math.max(0, Math.min(slides().length - 1, i));
+    state.idx = idx;
+    state.seq = 0;
+    state.t = 0;
+    if (manual) state.autoAdvance = false;
+  }
+  function next() { go(state.idx + 1, true); }
+  function prev() { go(state.idx - 1, true); }
+
+  // --- dots and word spans are rebuilt only when they actually change
+  var dotEls = [], dotsKey = null, wordEls = [], wordsKey = null;
+
+  function buildDots() {
+    var key = state.lang + '|' + slides().length;
+    if (dotsKey === key) return;
+    dotsKey = key;
+    dotsEl.innerHTML = '';
+    dotEls = slides().map(function (sl, i) {
+      var b = document.createElement('button');
+      b.setAttribute('aria-label', sl.label);
+      b.style.cssText = 'border:none;cursor:pointer;padding:0;height:7px;border-radius:4px;' +
+        'transition:width .3s, background .3s';
+      b.addEventListener('click', function () { go(i, true); });
+      dotsEl.appendChild(b);
+      return b;
+    });
+  }
+
+  function buildWords() {
+    var key = state.lang + '|' + state.idx;
+    if (wordsKey === key) return;
+    wordsKey = key;
+    wordsEl.innerHTML = '';
+    wordEls = [];
+    var s = slides()[state.idx];
+    if (s.kind !== 'text') return;
+    s.text.split(' ').forEach(function (w) {
+      var sp = document.createElement('span');
+      sp.textContent = w;
+      sp.style.cssText = 'display:inline-block;margin-right:0.28em';
+      wordsEl.appendChild(sp);
+      wordEls.push(sp);
+    });
+  }
+
+  function render() {
+    var s = slides()[state.idx];
+    var t = state.t;
+
+    ALL_PANELS.forEach(function (el) { el.style.display = 'none'; });
+
+    // Matches the source's `op: i === ci ? 1 : 0` binding, which is a render
+    // value there and so is re-evaluated every frame here too.
+    var ci = activeClip();
+    vids.forEach(function (v, i) { v.style.opacity = i === ci ? '1' : '0'; });
+
+    if (s.kind === 'text') {
+      PANELS.text.style.display = 'flex';
+      buildWords();
+      var write = s.text.length / CPS;
+      var per = write / Math.max(1, s.text.split(' ').length);
+      wordEls.forEach(function (sp, i) {
+        var p = outCubic(clamp01((t - i * per) / INK));
+        sp.style.opacity = p.toFixed(3);
+        sp.style.color = mix(FAINT, INKC, p);
+        sp.style.transform = 'translateY(' + ((1 - p) * 7).toFixed(2) + 'px)';
+        sp.style.filter = 'blur(' + ((1 - p) * 1.2).toFixed(2) + 'px)';
+      });
+      var blockOpacity = 1;
+      // Only fade the beat out when it is about to hand over automatically; on a
+      // manually revisited slide the text stays up so people can read it.
+      if (state.autoAdvance && t > write + HOLD) {
+        blockOpacity = (1 - clamp01((t - write - HOLD) / FADE)).toFixed(3);
+      }
+      wordsEl.style.fontSize = fitFontSize(s) + 'px';
+      wordsEl.style.fontStyle = s.italic ? 'italic' : 'normal';
+      wordsEl.style.opacity = blockOpacity;
+    } else {
+      var panel = PANELS[s.kind][state.lang];
+      panel.style.display = 'flex';
+      panel.style.opacity = outCubic(clamp01(t / 1.2)).toFixed(3);
+    }
+
+    buildDots();
+    dotEls.forEach(function (b, i) {
+      b.style.width = (i === state.idx ? 24 : 7) + 'px';
+      b.style.background = i === state.idx ? INKC : 'rgba(43,39,35,0.22)';
+    });
+
+    playEl.textContent = state.autoAdvance ? '❙❙' : '▶';
+    var pl = state.autoAdvance ? 'Pozastaviť' : 'Pokračovať';
+    playEl.setAttribute('aria-label', pl);
+    playEl.setAttribute('title', pl);
+    playEl.style.opacity = state.autoAdvance ? 0.28 : 0.6;
+
+    langEl.textContent = state.lang === 'sk' ? 'English' : 'Slovensky';
+    langEl.setAttribute('aria-label', langEl.textContent);
+
+    tapEl.style.display = state.needsTap ? 'flex' : 'none';
+  }
+
+  // --- events
+  langEl.addEventListener('click', function () {
+    state.lang = state.lang === 'sk' ? 'en' : 'sk';
+    state.t = 0;
+    state.seq = 0;
+  });
+  $('prev').addEventListener('click', prev);
+  $('next').addEventListener('click', next);
+  playEl.addEventListener('click', function () {
+    // Pause freezes where it is; resume hands over to the next slide (the
+    // current one has already been read by then).
+    if (state.autoAdvance) { state.autoAdvance = false; return; }
+    if (state.idx < slides().length - 1) {
+      state.idx += 1; state.seq = 0; state.t = 0; state.autoAdvance = true;
+    } else {
+      state.autoAdvance = true; state.t = 0;
+    }
+  });
+  tapEl.addEventListener('click', function () {
+    state.needsTap = false;
+    state.autoAdvance = true;
+    state.t = 0;
+    state.seq = 0;
+    syncVideo(true);
+  });
+  window.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight') next();
+    else if (e.key === 'ArrowLeft') prev();
+    else if (e.key === ' ') { e.preventDefault(); state.autoAdvance = !state.autoAdvance; }
+  });
+
+  // --- loop
+  var last = performance.now();
+  function loop(now) {
+    var dt = Math.min(0.25, (now - last) / 1000);
+    last = now;
+    var t = state.t + dt;
+    var d = slideDur(state.idx);
+    if (state.autoAdvance && d && t >= d && state.idx < slides().length - 1) go(state.idx + 1);
+    else state.t = t;
+    render();
+    maybeSyncVideo();
+    requestAnimationFrame(loop);
+  }
+  render();
+  syncVideo(true);
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
