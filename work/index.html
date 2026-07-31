@@ -21,13 +21,14 @@
   a { color: #E0623A; }
   a:hover { color: #2B2723; }
   @keyframes cuePulse { 0%, 100% { transform: translateY(0); box-shadow: 0 0 0 0 rgba(224,98,58,0.35); } 50% { transform: translateY(-3px); box-shadow: 0 0 0 12px rgba(224,98,58,0); } }
+  @keyframes smCycle { 0% { stroke-dashoffset: 100; } 30% { stroke-dashoffset: 0; } 70% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -100; } }
   /* style-hover in the Claude Design source becomes real :hover here.
      !important because the runtime writes these same properties inline. */
   #lang:hover { opacity: 1 !important; }
-  #cue:hover { filter: brightness(1.08); }
+  .cuebtn:hover { filter: brightness(1.08); }
   #prev:hover, #next:hover { opacity: 0.6 !important; }
   #play:hover { opacity: 0.9 !important; }
-  .giftlink:hover { color: #E0623A !important; border-bottom-color: #E0623A !important; }
+  .giftlink:hover { color: #E0623A !important; }
   .maplink:hover, .rsvplink:hover { color: #2B2723 !important; border-bottom-color: #2B2723 !important; }
 </style>
 </head>
@@ -68,27 +69,65 @@
   </div>
 
   <div id="s-gift-sk" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 10%; max-height: 100%; box-sizing: border-box; overflow-y: auto; max-width: 700px;">
+    <button class="cuebtn" style="display: flex; align-items: center; gap: 0.5em; border: none; cursor: pointer; background: #E0623A; color: #EFEADE; font-family: 'Lora', serif; font-size: clamp(16px, min(4.2cqw, 3.4dvh), 26px); padding: 0.55em 1.05em; border-radius: 999px; flex: 0 0 auto; margin: 10px 0 min(3.4vh, 30px); animation: cuePulse 2.6s ease-in-out infinite; transition: filter .25s;">Potvrdenie<span style="font-size: 1.15em; line-height: 1;">→</span></button>
     <div style="font-size: clamp(17px, min(4.8cqw, 3.4dvh), 38px); line-height: 1.5; text-wrap: pretty;">Mám všetko, čo by som si mohla priať a aj oveľa viac. Preto by som bola veľmi vďačná, keby</div>
     <div style="font-size: clamp(20px, min(5.8cqw, 4.1dvh), 46px); line-height: 1.35; font-style: italic; color: #E0623A; margin-top: min(1.8vh, 18px); text-wrap: pretty;">môj narodeninový dar bol darom nás všetkých.</div>
     <div style="width: 132px; height: 5px; border-radius: 3px; background: rgba(43,39,35,0.18); margin-top: min(3.4vh, 34px);"></div>
-    <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 0 0.5em; margin-top: min(3.4vh, 34px); font-size: clamp(26px, min(7.6cqw, 5.4dvh), 62px); line-height: 1.25;">
-      <a class="giftlink" href="https://cestavon.darujme.sk/p2p/narodeninova-zbierka-pre-omamy-maria-bielikova/" target="_blank" rel="noopener" style="color: #2B2723; text-decoration: none; border-bottom: 2px solid rgba(224,98,58,0.5); padding-bottom: 2px;">Omamy</a>
-      <span style="opacity: 0.35; font-style: italic; font-size: 0.62em;">a</span>
-      <a class="giftlink" href="https://dasato.darujme.sk/p2p/narodeninova-zbierka-pre-dasato/" target="_blank" rel="noopener" style="color: #2B2723; text-decoration: none; border-bottom: 2px solid rgba(224,98,58,0.5); padding-bottom: 2px;">Dasato</a>
+    <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 0.5em 0.75em; margin-top: min(4.4vh, 46px); margin-bottom: min(1.6vh, 16px); font-size: clamp(26px, min(7.6cqw, 5.4dvh), 62px); line-height: 1.35;">
+      <span style="position: relative; display: inline-block;">
+        <a class="giftlink" href="https://cestavon.darujme.sk/p2p/narodeninova-zbierka-pre-omamy-maria-bielikova/" target="_blank" rel="noopener" style="position: relative; z-index: 1; color: #2B2723; text-decoration: none; transition: color .25s;">Omamy</a>
+      <span style="position: absolute; inset: 0; pointer-events: none;">
+    <div style="position: absolute; left: -11%; right: -11%; top: -26%; bottom: -20%;">
+      <svg viewBox="0 0 100 40" preserveAspectRatio="none" style="width: 100%; height: 100%; overflow: visible; display: block;">
+        <path pathLength="100" d="M 30,4 C 12,6 3,13 4,21 C 5,31 26,37 52,37 C 78,37 97,31 96,21 C 95,11 74,4 48,3 C 33,3 22,6 16,11" fill="none" stroke="#E0623A" stroke-width="2.4" stroke-linecap="round" vector-effect="non-scaling-stroke" style="stroke-dasharray: 100; animation: smCycle 3.4s cubic-bezier(.5,.05,.35,1) infinite;"></path>
+      </svg>
     </div>
-    <div style="font-size: clamp(14px, min(3.4cqw, 2.5dvh), 26px); line-height: 1.5; opacity: 0.66; margin-top: min(2.4vh, 24px); max-width: 620px; text-wrap: pretty;">Dva výnimočné projekty. Klikni na ktorýkoľvek z nich a premeň kúsok našej cesty na nádej pre druhých.</div>
+      </span>
+      </span>
+      <span style="opacity: 0.35; font-style: italic; font-size: 0.62em; padding: 0 0.2em;">a</span>
+      <span style="position: relative; display: inline-block;">
+        <a class="giftlink" href="https://dasato.darujme.sk/p2p/narodeninova-zbierka-pre-dasato/" target="_blank" rel="noopener" style="position: relative; z-index: 1; color: #2B2723; text-decoration: none; transition: color .25s;">Dasato</a>
+      <span style="position: absolute; inset: 0; pointer-events: none;">
+    <div style="position: absolute; left: -11%; right: -11%; top: -26%; bottom: -20%;">
+      <svg viewBox="0 0 100 40" preserveAspectRatio="none" style="width: 100%; height: 100%; overflow: visible; display: block;">
+        <path pathLength="100" d="M 30,4 C 12,6 3,13 4,21 C 5,31 26,37 52,37 C 78,37 97,31 96,21 C 95,11 74,4 48,3 C 33,3 22,6 16,11" fill="none" stroke="#E0623A" stroke-width="2.4" stroke-linecap="round" vector-effect="non-scaling-stroke" style="stroke-dasharray: 100; animation: smCycle 3.4s cubic-bezier(.5,.05,.35,1) infinite;"></path>
+      </svg>
+    </div>
+      </span>
+      </span>
+    </div>
+    <div style="font-size: clamp(14px, min(3.4cqw, 2.5dvh), 26px); line-height: 1.5; opacity: 0.66; margin-top: min(6.2vh, 62px); max-width: 620px; text-wrap: pretty;">Dva výnimočné projekty. Klikni na ktorýkoľvek z nich a premeň kúsok našej cesty na nádej pre druhých.</div>
   </div>
 
   <div id="s-gift-en" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 10%; max-height: 100%; box-sizing: border-box; overflow-y: auto; max-width: 700px;">
+    <button class="cuebtn" style="display: flex; align-items: center; gap: 0.5em; border: none; cursor: pointer; background: #E0623A; color: #EFEADE; font-family: 'Lora', serif; font-size: clamp(16px, min(4.2cqw, 3.4dvh), 26px); padding: 0.55em 1.05em; border-radius: 999px; flex: 0 0 auto; margin: 10px 0 min(3.4vh, 30px); animation: cuePulse 2.6s ease-in-out infinite; transition: filter .25s;">Confirmation<span style="font-size: 1.15em; line-height: 1;">→</span></button>
     <div style="font-size: clamp(17px, min(4.8cqw, 3.4dvh), 38px); line-height: 1.5; text-wrap: pretty;">I have everything I could wish for and so much more. Instead of a birthday gift for me, I would be truly grateful if</div>
     <div style="font-size: clamp(20px, min(5.8cqw, 4.1dvh), 46px); line-height: 1.35; font-style: italic; color: #E0623A; margin-top: min(1.8vh, 18px); text-wrap: pretty;">we could make it a gift from all of us.</div>
     <div style="width: 132px; height: 5px; border-radius: 3px; background: rgba(43,39,35,0.18); margin-top: min(3.4vh, 34px);"></div>
-    <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 0 0.5em; margin-top: min(3.4vh, 34px); font-size: clamp(26px, min(7.6cqw, 5.4dvh), 62px); line-height: 1.25;">
-      <a class="giftlink" href="https://cestavon.darujme.sk/p2p/narodeninova-zbierka-pre-omamy-maria-bielikova/" target="_blank" rel="noopener" style="color: #2B2723; text-decoration: none; border-bottom: 2px solid rgba(224,98,58,0.5); padding-bottom: 2px;">Omamy</a>
-      <span style="opacity: 0.35; font-style: italic; font-size: 0.62em;">and</span>
-      <a class="giftlink" href="https://dasato.darujme.sk/p2p/narodeninova-zbierka-pre-dasato/" target="_blank" rel="noopener" style="color: #2B2723; text-decoration: none; border-bottom: 2px solid rgba(224,98,58,0.5); padding-bottom: 2px;">Dasato</a>
+    <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 0.5em 0.75em; margin-top: min(4.4vh, 46px); margin-bottom: min(1.6vh, 16px); font-size: clamp(26px, min(7.6cqw, 5.4dvh), 62px); line-height: 1.35;">
+      <span style="position: relative; display: inline-block;">
+        <a class="giftlink" href="https://cestavon.darujme.sk/p2p/narodeninova-zbierka-pre-omamy-maria-bielikova/" target="_blank" rel="noopener" style="position: relative; z-index: 1; color: #2B2723; text-decoration: none; transition: color .25s;">Omamy</a>
+      <span style="position: absolute; inset: 0; pointer-events: none;">
+    <div style="position: absolute; left: -11%; right: -11%; top: -26%; bottom: -20%;">
+      <svg viewBox="0 0 100 40" preserveAspectRatio="none" style="width: 100%; height: 100%; overflow: visible; display: block;">
+        <path pathLength="100" d="M 30,4 C 12,6 3,13 4,21 C 5,31 26,37 52,37 C 78,37 97,31 96,21 C 95,11 74,4 48,3 C 33,3 22,6 16,11" fill="none" stroke="#E0623A" stroke-width="2.4" stroke-linecap="round" vector-effect="non-scaling-stroke" style="stroke-dasharray: 100; animation: smCycle 3.4s cubic-bezier(.5,.05,.35,1) infinite;"></path>
+      </svg>
     </div>
-    <div style="font-size: clamp(14px, min(3.4cqw, 2.5dvh), 26px); line-height: 1.5; opacity: 0.66; margin-top: min(2.4vh, 24px); max-width: 620px; text-wrap: pretty;">Two remarkable initiatives. Open either one and turn a small part of our shared journey into hope for others.</div>
+      </span>
+      </span>
+      <span style="opacity: 0.35; font-style: italic; font-size: 0.62em; padding: 0 0.2em;">and</span>
+      <span style="position: relative; display: inline-block;">
+        <a class="giftlink" href="https://dasato.darujme.sk/p2p/narodeninova-zbierka-pre-dasato/" target="_blank" rel="noopener" style="position: relative; z-index: 1; color: #2B2723; text-decoration: none; transition: color .25s;">Dasato</a>
+      <span style="position: absolute; inset: 0; pointer-events: none;">
+    <div style="position: absolute; left: -11%; right: -11%; top: -26%; bottom: -20%;">
+      <svg viewBox="0 0 100 40" preserveAspectRatio="none" style="width: 100%; height: 100%; overflow: visible; display: block;">
+        <path pathLength="100" d="M 30,4 C 12,6 3,13 4,21 C 5,31 26,37 52,37 C 78,37 97,31 96,21 C 95,11 74,4 48,3 C 33,3 22,6 16,11" fill="none" stroke="#E0623A" stroke-width="2.4" stroke-linecap="round" vector-effect="non-scaling-stroke" style="stroke-dasharray: 100; animation: smCycle 3.4s cubic-bezier(.5,.05,.35,1) infinite;"></path>
+      </svg>
+    </div>
+      </span>
+      </span>
+    </div>
+    <div style="font-size: clamp(14px, min(3.4cqw, 2.5dvh), 26px); line-height: 1.5; opacity: 0.66; margin-top: min(6.2vh, 62px); max-width: 620px; text-wrap: pretty;">Two remarkable initiatives. Open either one and turn a small part of our shared journey into hope for others.</div>
   </div>
 
   <div id="s-thanks-sk" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 7%; max-width: 760px; max-height: 100%; box-sizing: border-box; overflow-y: auto;">
@@ -111,9 +150,6 @@
   <div id="next" role="button" aria-label="Ďalšie" style="position: absolute; right: 0; top: 0; bottom: 72px; width: 15%; max-width: 140px; z-index: 5; cursor: pointer; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; display: flex; align-items: center; justify-content: flex-end; padding-right: 10px; color: #2B2723; font-size: 30px; opacity: 0.18; transition: opacity .25s;">›</div>
  </div>
   <div style="flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 12px 16px 20px;">
-    <div style="position: absolute; left: 0; right: 0; bottom: clamp(84px, 13dvh, 104px); z-index: 12; display: flex; align-items: center; justify-content: center; pointer-events: none;">
-      <button id="cue" style="display: none; align-items: center; gap: 0.5em; border: none; cursor: pointer; background: #E0623A; color: #EFEADE; font-family: 'Lora', serif; font-size: clamp(16px, min(4.2cqw, 3.4dvh), 26px); padding: 0.55em 1.05em; border-radius: 999px; pointer-events: auto; animation: cuePulse 2.6s ease-in-out infinite; transition: filter .25s;"><span id="cuemain"></span><span style="font-size: 1.15em; line-height: 1;">→</span></button>
-    </div>
     <button id="play" style="border: none; background: none; padding: 6px 10px; cursor: pointer; color: #2B2723; font-size: 19px; line-height: 1; letter-spacing: 0.1em; transition: opacity .25s; font-family: 'Lora', serif;"></button>
     <div id="dots" style="display: flex; align-items: center; gap: 9px;"></div>
   </div>
@@ -137,13 +173,13 @@
     { kind: 'text', label: 'Vnútorný oheň', clips: [2, 3],
       text: 'Ohnivý kôň miluje slobodu a neustále hľadá nové obzory. Vyzerá to tak, že celých 60 rokov ma poháňal práve tento vnútorný oheň.',
       size: 'clamp(19px, 3.5cqw, 40px)' },
-    { kind: 'text', label: 'Kôň sa vracia', clips: [4, 5],
+    { kind: 'text', label: 'Kôň sa vracia', clips: [4, 5, 6],
       text: 'Dnes, po 60-tich rokoch, sa Ohnivý kôň vracia. A nie je sám. Našiel ma v radosti — v kruhu mojej rodiny, priateľov, kolegov. Aj teba. V radosti z cesty, ktorú sme každý sám a trochu aj spolu, prešli.',
       size: 'clamp(18px, 3.2cqw, 36px)' },
-    { kind: 'text', label: 'Pozvanie', clips: [6, 7, 8], noLoop: true,
+    { kind: 'text', label: 'Pozvanie', clips: [7, 8], noLoop: true, extra: 4,
       text: 'Príď osláviť so mnou, že sa naše cesty stretli.',
       emph: 1.3, italic: true },
-    { kind: 'date', label: 'Kedy a kde', dur: 10 },
+    { kind: 'date', label: 'Kedy a kde', dur: 2.5 },
     { kind: 'gift', label: 'Dar', dur: null },
     { kind: 'thanks', label: 'Ďakujem', dur: null },
   ];
@@ -154,27 +190,26 @@
     { kind: 'text', label: 'Inner fire', clips: [2, 3],
       text: 'The Fire Horse loves freedom and is always searching for new horizons. Looking back, it seems that this inner fire has been driving me throughout my entire life.',
       size: 'clamp(19px, 3.5cqw, 40px)' },
-    { kind: 'text', label: 'The horse returns', clips: [4, 5],
+    { kind: 'text', label: 'The horse returns', clips: [4, 5, 6],
       text: 'Today, as I turn 60, the Fire Horse returns. And it does not return alone. It found me in joy — surrounded by my family, friends and colleagues. By you. Grateful for the journey each of us has travelled, sometimes on our own, and sometimes together.',
       size: 'clamp(18px, 3.2cqw, 36px)' },
-    { kind: 'text', label: 'Invitation', clips: [6, 7, 8], noLoop: true,
+    { kind: 'text', label: 'Invitation', clips: [7, 8], noLoop: true, extra: 4,
       text: 'Come celebrate with me that our paths have crossed.',
       emph: 1.3, italic: true },
-    { kind: 'date', label: 'When and where', dur: 10 },
+    { kind: 'date', label: 'When and where', dur: 2.5 },
     { kind: 'gift', label: 'The gift', dur: null },
     { kind: 'thanks', label: 'Thank you', dur: null },
   ];
 
   // Carried over verbatim from DCLogic.
-  var CPS = 26, HOLD = 3.6, FADE = 0.9, INK = 0.5;
+  var CPS = 40, HOLD = 2.2, FADE = 0.6, INK = 0.34;
   var INKC = '#2B2723', FAINT = '#C7BCA6';
 
   var state = { idx: 0, seq: 0, t: 0, autoAdvance: true, needsTap: false, lang: 'sk', box: null };
 
   var $ = function (id) { return document.getElementById(id); };
   var boxEl = $('videobox'), textBoxEl = $('textbox'), wordsEl = $('words'),
-      dotsEl = $('dots'), playEl = $('play'), langEl = $('lang'), tapEl = $('tap'),
-      cueEl = $('cue'), cueMainEl = $('cuemain');
+      dotsEl = $('dots'), playEl = $('play'), langEl = $('lang'), tapEl = $('tap');
 
   var PANELS = {
     text: $('s-text'),
@@ -190,7 +225,7 @@
   function slideDur(i) {
     var s = slides()[i];
     if (s.kind !== 'text') return s.dur;
-    return s.text.length / CPS + HOLD + FADE;
+    return s.text.length / CPS + HOLD + FADE + (s.extra || 0);
   }
 
   function activeClip() {
@@ -391,16 +426,6 @@
     playEl.setAttribute('title', pl);
     playEl.style.opacity = state.autoAdvance ? 0.28 : 0.6;
 
-    // The gift slide never hands over on its own, so make it obvious that
-    // something still follows. Shown on the date and gift slides only, with a
-    // different word on each.
-    var n = slides().length;
-    var showCue = state.idx >= n - 3 && state.idx <= n - 2;
-    cueEl.style.display = showCue ? 'flex' : 'none';
-    cueMainEl.textContent = state.idx === n - 3
-      ? (state.lang === 'sk' ? 'Ešte jedna prosba…' : 'One more request…')
-      : (state.lang === 'sk' ? 'A ešte niečo…' : 'One more thing…');
-
     langEl.textContent = state.lang === 'sk' ? 'English' : 'Slovensky';
     langEl.setAttribute('aria-label', langEl.textContent);
 
@@ -415,7 +440,11 @@
   });
   $('prev').addEventListener('click', prev);
   $('next').addEventListener('click', next);
-  cueEl.addEventListener('click', next);
+  // The gift slide has dur: null and never hands over on its own, so it carries
+  // its own pulsing hand-off button — one per language panel.
+  Array.prototype.forEach.call(document.querySelectorAll('.cuebtn'), function (b) {
+    b.addEventListener('click', next);
+  });
   playEl.addEventListener('click', function () {
     // Pause freezes where it is; resume hands over to the next slide (the
     // current one has already been read by then).
