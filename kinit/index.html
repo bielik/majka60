@@ -15,10 +15,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&display=swap&subset=latin,latin-ext" rel="stylesheet">
 <style>
-  /* Two declarations, not one: browsers that do not understand the `only`
-     keyword drop that whole line and keep the plain `light` above it. */
-  :root { color-scheme: light; color-scheme: only light; }
-  html, body { margin: 0; background: #161514; -webkit-font-smoothing: antialiased; overflow: hidden; }
+  html, body { color-scheme: light only; margin: 0; background: #161514; -webkit-font-smoothing: antialiased; overflow: hidden; }
   * { scrollbar-width: none; -ms-overflow-style: none; -webkit-tap-highlight-color: transparent; }
   *::-webkit-scrollbar { width: 0; height: 0; display: none; }
   a { color: #E0623A; }
@@ -33,13 +30,13 @@
 </style>
 </head>
 <body>
-<div style="height: calc(100dvh - 14px); margin: 7px; border-radius: 36px; display: flex; flex-direction: column; background: #F1EBDF; color: #2B2723; font-family: 'Lora', Georgia, 'Times New Roman', serif; overflow: hidden; position: relative;">
-  <button id="lang" style="position: absolute; top: 20px; right: 26px; z-index: 20; border: none; background: none; padding: 2px 0; cursor: pointer; font-family: 'Lora', serif; font-size: clamp(13px, 1.6vw, 17px); font-style: italic; color: #E0623A; opacity: 0.75; border-bottom: 1px solid rgba(224,98,58,0.4); transition: opacity .25s;"></button>
+<div style="height: calc(100dvh - 14px); width: calc(100% - 14px); max-width: 560px; margin: 7px auto; container-type: inline-size; border-radius: 36px; display: flex; flex-direction: column; background: #EFEADE; color: #2B2723; font-family: 'Lora', Georgia, 'Times New Roman', serif; overflow: hidden; position: relative;">
+  <button id="lang" style="position: absolute; top: 20px; right: 26px; z-index: 20; border: none; background: none; padding: 2px 0; cursor: pointer; font-family: 'Lora', serif; font-size: clamp(13px, 1.6cqw, 17px); font-style: italic; color: #E0623A; opacity: 0.75; border-bottom: 1px solid rgba(224,98,58,0.4); transition: opacity .25s;"></button>
  <div style="flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; padding: calc(env(safe-area-inset-top, 0px) + 64px) 0 0;">
 
   <div id="s-text" style="width: 100%; max-width: 1000px; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-    <div id="videobox" style="position: relative; flex: 0 0 auto; width: min(92vw, 42dvh); aspect-ratio: 1 / 1; overflow: hidden; background: #F1EBDF; isolation: isolate;">
-      <div style="position: absolute; inset: 0; pointer-events: none; box-shadow: inset 0 0 0 3px #F1EBDF; z-index: 2;"></div>
+    <div id="videobox" style="position: relative; flex: 0 0 auto; width: min(92cqw, 42dvh); aspect-ratio: 1 / 1; overflow: hidden; border-radius: 36px; background: #EFEADE; isolation: isolate;">
+      <div style="position: absolute; inset: 0; pointer-events: none; border-radius: 36px; box-shadow: inset 0 0 0 3px #EFEADE; z-index: 2;"></div>
     </div>
     <div id="textbox" style="flex: 1 1 auto; min-height: 0; width: 100%; display: flex; align-items: center; justify-content: center; padding: 3vh 6% 0; box-sizing: border-box;">
       <div id="words" style="text-align: center; max-width: 860px; max-height: 100%; line-height: 1.4; letter-spacing: 0.005em; text-wrap: pretty;"></div>
@@ -48,64 +45,64 @@
 
   <div id="s-date-sk" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 7%; max-width: 760px; max-height: 100%; box-sizing: border-box; overflow-y: auto;">
     <div style="width: 132px; height: 5px; border-radius: 3px; background: #E0623A;"></div>
-    <div style="font-size: clamp(38px, min(11.5vw, 13dvh), 104px); line-height: 1.05; margin-top: min(6vh, 40px);">11. septembra 2026</div>
-    <div style="font-size: clamp(22px, min(6.4vw, 7dvh), 58px); font-style: italic; color: #E0623A; margin-top: min(2.2vh, 16px);">o 16.00 hod</div>
-    <div style="font-size: clamp(28px, min(8vw, 8.5dvh), 72px); line-height: 1.1; margin-top: min(5vh, 44px);">The Spot</div>
-    <div style="font-size: clamp(17px, min(5vw, 5dvh), 44px); opacity: 0.72; margin-top: 1.6vh;">Bottova 2A, terasa (8. poschodie)</div>
-    <div style="font-size: clamp(15px, min(4vw, 4dvh), 32px); opacity: 0.6; margin-top: 1vh;">Bratislava</div>
-    <a class="maplink" href="https://maps.app.goo.gl/qiNruKnJ4SgnQouQA" target="_blank" rel="noopener" style="font-size: clamp(14px, min(3.4vw, 3.4dvh), 26px); margin-top: min(2.4vh, 18px); color: #E0623A; text-decoration: none; border-bottom: 1px solid rgba(224,98,58,0.4); padding-bottom: 3px;">otvoriť v mapách →</a>
+    <div style="font-size: clamp(38px, min(11.5cqw, 13dvh), 104px); line-height: 1.05; margin-top: min(6vh, 40px);">11. septembra 2026</div>
+    <div style="font-size: clamp(22px, min(6.4cqw, 7dvh), 58px); font-style: italic; color: #E0623A; margin-top: min(2.2vh, 16px);">o 16.00 hod</div>
+    <div style="font-size: clamp(28px, min(8cqw, 8.5dvh), 72px); line-height: 1.1; margin-top: min(5vh, 44px);">The Spot</div>
+    <div style="font-size: clamp(17px, min(5cqw, 5dvh), 44px); opacity: 0.72; margin-top: 1.6vh;">Bottova 2A, terasa (8. poschodie)</div>
+    <div style="font-size: clamp(15px, min(4cqw, 4dvh), 32px); opacity: 0.6; margin-top: 1vh;">Bratislava</div>
+    <a class="maplink" href="https://maps.app.goo.gl/qiNruKnJ4SgnQouQA" target="_blank" rel="noopener" style="font-size: clamp(14px, min(3.4cqw, 3.4dvh), 26px); margin-top: min(2.4vh, 18px); color: #E0623A; text-decoration: none; border-bottom: 1px solid rgba(224,98,58,0.4); padding-bottom: 3px;">otvoriť v mapách →</a>
     <div style="width: 132px; height: 5px; border-radius: 3px; background: #E0623A; margin-top: min(5vh, 40px);"></div>
   </div>
 
   <div id="s-date-en" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 7%; max-width: 760px; max-height: 100%; box-sizing: border-box; overflow-y: auto;">
     <div style="width: 132px; height: 5px; border-radius: 3px; background: #E0623A;"></div>
-    <div style="font-size: clamp(38px, min(11.5vw, 13dvh), 104px); line-height: 1.05; margin-top: min(6vh, 40px);">September 11, 2026</div>
-    <div style="font-size: clamp(22px, min(6.4vw, 7dvh), 58px); font-style: italic; color: #E0623A; margin-top: min(2.2vh, 16px);">at 4:00 p.m.</div>
-    <div style="font-size: clamp(28px, min(8vw, 8.5dvh), 72px); line-height: 1.1; margin-top: min(5vh, 44px);">The Spot</div>
-    <div style="font-size: clamp(17px, min(5vw, 5dvh), 44px); opacity: 0.72; margin-top: 1.6vh;">Bottova 2A, rooftop terrace (8th floor)</div>
-    <div style="font-size: clamp(15px, min(4vw, 4dvh), 32px); opacity: 0.6; margin-top: 1vh;">Bratislava</div>
-    <a class="maplink" href="https://maps.app.goo.gl/qiNruKnJ4SgnQouQA" target="_blank" rel="noopener" style="font-size: clamp(14px, min(3.4vw, 3.4dvh), 26px); margin-top: min(2.4vh, 18px); color: #E0623A; text-decoration: none; border-bottom: 1px solid rgba(224,98,58,0.4); padding-bottom: 3px;">open in maps →</a>
+    <div style="font-size: clamp(38px, min(11.5cqw, 13dvh), 104px); line-height: 1.05; margin-top: min(6vh, 40px);">September 11, 2026</div>
+    <div style="font-size: clamp(22px, min(6.4cqw, 7dvh), 58px); font-style: italic; color: #E0623A; margin-top: min(2.2vh, 16px);">at 4:00 p.m.</div>
+    <div style="font-size: clamp(28px, min(8cqw, 8.5dvh), 72px); line-height: 1.1; margin-top: min(5vh, 44px);">The Spot</div>
+    <div style="font-size: clamp(17px, min(5cqw, 5dvh), 44px); opacity: 0.72; margin-top: 1.6vh;">Bottova 2A, rooftop terrace (8th floor)</div>
+    <div style="font-size: clamp(15px, min(4cqw, 4dvh), 32px); opacity: 0.6; margin-top: 1vh;">Bratislava</div>
+    <a class="maplink" href="https://maps.app.goo.gl/qiNruKnJ4SgnQouQA" target="_blank" rel="noopener" style="font-size: clamp(14px, min(3.4cqw, 3.4dvh), 26px); margin-top: min(2.4vh, 18px); color: #E0623A; text-decoration: none; border-bottom: 1px solid rgba(224,98,58,0.4); padding-bottom: 3px;">open in maps →</a>
     <div style="width: 132px; height: 5px; border-radius: 3px; background: #E0623A; margin-top: min(5vh, 40px);"></div>
   </div>
 
   <div id="s-gift-sk" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 10%; max-height: 100%; box-sizing: border-box; overflow-y: auto; max-width: 700px;">
-    <div style="font-size: clamp(17px, min(4.8vw, 5dvh), 38px); line-height: 1.5; text-wrap: pretty;">Mám všetko, čo by som si mohla priať a aj oveľa viac. Preto by som bola veľmi vďačná, keby</div>
-    <div style="font-size: clamp(20px, min(5.8vw, 6dvh), 46px); line-height: 1.35; font-style: italic; color: #E0623A; margin-top: min(2.4vh, 18px); text-wrap: pretty;">môj narodeninový dar bol darom nás všetkých.</div>
+    <div style="font-size: clamp(17px, min(4.8cqw, 5dvh), 38px); line-height: 1.5; text-wrap: pretty;">Mám všetko, čo by som si mohla priať a aj oveľa viac. Preto by som bola veľmi vďačná, keby</div>
+    <div style="font-size: clamp(20px, min(5.8cqw, 6dvh), 46px); line-height: 1.35; font-style: italic; color: #E0623A; margin-top: min(2.4vh, 18px); text-wrap: pretty;">môj narodeninový dar bol darom nás všetkých.</div>
     <div style="width: 132px; height: 5px; border-radius: 3px; background: rgba(43,39,35,0.18); margin-top: min(5vh, 34px);"></div>
-    <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 0 0.5em; margin-top: min(5vh, 34px); font-size: clamp(26px, min(7.6vw, 8dvh), 62px); line-height: 1.25;">
+    <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 0 0.5em; margin-top: min(5vh, 34px); font-size: clamp(26px, min(7.6cqw, 8dvh), 62px); line-height: 1.25;">
       <a class="giftlink" href="https://cestavon.darujme.sk/p2p/narodeninova-zbierka-pre-omamy-maria-bielikova/" target="_blank" rel="noopener" style="color: #2B2723; text-decoration: none; border-bottom: 2px solid rgba(224,98,58,0.5); padding-bottom: 2px;">Omamy</a>
       <span style="opacity: 0.35; font-style: italic; font-size: 0.62em;">a</span>
       <a class="giftlink" href="https://dasato.darujme.sk/p2p/narodeninova-zbierka-pre-dasato/" target="_blank" rel="noopener" style="color: #2B2723; text-decoration: none; border-bottom: 2px solid rgba(224,98,58,0.5); padding-bottom: 2px;">Dasato</a>
     </div>
-    <div style="font-size: clamp(14px, min(3.4vw, 3.6dvh), 26px); line-height: 1.5; opacity: 0.66; margin-top: min(3.4vh, 24px); max-width: 620px; text-wrap: pretty;">Dva výnimočné projekty. Klikni na ktorýkoľvek z nich a premeň kúsok našej cesty na nádej pre druhých.</div>
+    <div style="font-size: clamp(14px, min(3.4cqw, 3.6dvh), 26px); line-height: 1.5; opacity: 0.66; margin-top: min(3.4vh, 24px); max-width: 620px; text-wrap: pretty;">Dva výnimočné projekty. Klikni na ktorýkoľvek z nich a premeň kúsok našej cesty na nádej pre druhých.</div>
   </div>
 
   <div id="s-gift-en" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 10%; max-height: 100%; box-sizing: border-box; overflow-y: auto; max-width: 700px;">
-    <div style="font-size: clamp(17px, min(4.8vw, 5dvh), 38px); line-height: 1.5; text-wrap: pretty;">I have everything I could wish for and so much more. Instead of a birthday gift for me, I would be truly grateful if</div>
-    <div style="font-size: clamp(20px, min(5.8vw, 6dvh), 46px); line-height: 1.35; font-style: italic; color: #E0623A; margin-top: min(2.4vh, 18px); text-wrap: pretty;">we could make it a gift from all of us.</div>
+    <div style="font-size: clamp(17px, min(4.8cqw, 5dvh), 38px); line-height: 1.5; text-wrap: pretty;">I have everything I could wish for and so much more. Instead of a birthday gift for me, I would be truly grateful if</div>
+    <div style="font-size: clamp(20px, min(5.8cqw, 6dvh), 46px); line-height: 1.35; font-style: italic; color: #E0623A; margin-top: min(2.4vh, 18px); text-wrap: pretty;">we could make it a gift from all of us.</div>
     <div style="width: 132px; height: 5px; border-radius: 3px; background: rgba(43,39,35,0.18); margin-top: min(5vh, 34px);"></div>
-    <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 0 0.5em; margin-top: min(5vh, 34px); font-size: clamp(26px, min(7.6vw, 8dvh), 62px); line-height: 1.25;">
+    <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 0 0.5em; margin-top: min(5vh, 34px); font-size: clamp(26px, min(7.6cqw, 8dvh), 62px); line-height: 1.25;">
       <a class="giftlink" href="https://cestavon.darujme.sk/p2p/narodeninova-zbierka-pre-omamy-maria-bielikova/" target="_blank" rel="noopener" style="color: #2B2723; text-decoration: none; border-bottom: 2px solid rgba(224,98,58,0.5); padding-bottom: 2px;">Omamy</a>
       <span style="opacity: 0.35; font-style: italic; font-size: 0.62em;">and</span>
       <a class="giftlink" href="https://dasato.darujme.sk/p2p/narodeninova-zbierka-pre-dasato/" target="_blank" rel="noopener" style="color: #2B2723; text-decoration: none; border-bottom: 2px solid rgba(224,98,58,0.5); padding-bottom: 2px;">Dasato</a>
     </div>
-    <div style="font-size: clamp(14px, min(3.4vw, 3.6dvh), 26px); line-height: 1.5; opacity: 0.66; margin-top: min(3.4vh, 24px); max-width: 620px; text-wrap: pretty;">Two remarkable initiatives. Open either one and turn a small part of our shared journey into hope for others.</div>
+    <div style="font-size: clamp(14px, min(3.4cqw, 3.6dvh), 26px); line-height: 1.5; opacity: 0.66; margin-top: min(3.4vh, 24px); max-width: 620px; text-wrap: pretty;">Two remarkable initiatives. Open either one and turn a small part of our shared journey into hope for others.</div>
   </div>
 
   <div id="s-thanks-sk" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 7%; max-width: 760px; max-height: 100%; box-sizing: border-box; overflow-y: auto;">
-    <div style="font-size: clamp(38px, min(11.5vw, 13dvh), 104px); line-height: 1;">Ďakujem</div>
-    <div style="font-size: clamp(24px, min(6.8vw, 7.5dvh), 60px); font-style: italic; color: #E0623A; margin-top: min(3vh, 22px);">Majka</div>
+    <div style="font-size: clamp(38px, min(11.5cqw, 13dvh), 104px); line-height: 1;">Ďakujem</div>
+    <div style="font-size: clamp(24px, min(6.8cqw, 7.5dvh), 60px); font-style: italic; color: #E0623A; margin-top: min(3vh, 22px);">Majka</div>
     <div style="width: 132px; height: 5px; border-radius: 3px; background: rgba(43,39,35,0.18); margin-top: min(5vh, 40px);"></div>
-    <div style="font-size: clamp(14px, min(3.6vw, 3.8dvh), 28px); opacity: 0.7; margin-top: min(6vh, 40px); letter-spacing: 0.06em;">RSVP do 23. 8. 2026</div>
-    <a class="rsvplink" href="mailto:maria.bielikova@kinit.sk?subject=RSVP%20—%2011.%209.%202026" style="font-size: clamp(17px, min(4.6vw, 5dvh), 36px); margin-top: 1.6vh; color: #E0623A; text-decoration: none; border-bottom: 1px solid rgba(224,98,58,0.45); padding-bottom: 4px;">maria.bielikova@kinit.sk</a>
+    <div style="font-size: clamp(14px, min(3.6cqw, 3.8dvh), 28px); opacity: 0.7; margin-top: min(6vh, 40px); letter-spacing: 0.06em;">RSVP do 23. 8. 2026</div>
+    <a class="rsvplink" href="mailto:maria.bielikova@kinit.sk?subject=RSVP%20—%2011.%209.%202026" style="font-size: clamp(17px, min(4.6cqw, 5dvh), 36px); margin-top: 1.6vh; color: #E0623A; text-decoration: none; border-bottom: 1px solid rgba(224,98,58,0.45); padding-bottom: 4px;">maria.bielikova@kinit.sk</a>
   </div>
 
   <div id="s-thanks-en" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 7%; max-width: 760px; max-height: 100%; box-sizing: border-box; overflow-y: auto;">
-    <div style="font-size: clamp(38px, min(11.5vw, 13dvh), 104px); line-height: 1;">Thank you</div>
-    <div style="font-size: clamp(24px, min(6.8vw, 7.5dvh), 60px); font-style: italic; color: #E0623A; margin-top: min(3vh, 22px);">Majka</div>
+    <div style="font-size: clamp(38px, min(11.5cqw, 13dvh), 104px); line-height: 1;">Thank you</div>
+    <div style="font-size: clamp(24px, min(6.8cqw, 7.5dvh), 60px); font-style: italic; color: #E0623A; margin-top: min(3vh, 22px);">Majka</div>
     <div style="width: 132px; height: 5px; border-radius: 3px; background: rgba(43,39,35,0.18); margin-top: min(5vh, 40px);"></div>
-    <div style="font-size: clamp(14px, min(3.6vw, 3.8dvh), 28px); opacity: 0.7; margin-top: min(6vh, 40px); letter-spacing: 0.06em;">RSVP by August 23, 2026</div>
-    <a class="rsvplink" href="mailto:maria.bielikova@kinit.sk?subject=RSVP%20—%20September%2011%2C%202026" style="font-size: clamp(17px, min(4.6vw, 5dvh), 36px); margin-top: 1.6vh; color: #E0623A; text-decoration: none; border-bottom: 1px solid rgba(224,98,58,0.45); padding-bottom: 4px;">maria.bielikova@kinit.sk</a>
+    <div style="font-size: clamp(14px, min(3.6cqw, 3.8dvh), 28px); opacity: 0.7; margin-top: min(6vh, 40px); letter-spacing: 0.06em;">RSVP by August 23, 2026</div>
+    <a class="rsvplink" href="mailto:maria.bielikova@kinit.sk?subject=RSVP%20—%20September%2011%2C%202026" style="font-size: clamp(17px, min(4.6cqw, 5dvh), 36px); margin-top: 1.6vh; color: #E0623A; text-decoration: none; border-bottom: 1px solid rgba(224,98,58,0.45); padding-bottom: 4px;">maria.bielikova@kinit.sk</a>
   </div>
 
   <div id="prev" role="button" aria-label="Predchádzajúce" style="position: absolute; left: 0; top: 0; bottom: 72px; width: 15%; max-width: 140px; z-index: 5; cursor: pointer; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; display: flex; align-items: center; justify-content: flex-start; padding-left: 10px; color: #2B2723; font-size: 30px; opacity: 0.18; transition: opacity .25s;">‹</div>
@@ -116,9 +113,9 @@
     <div id="dots" style="display: flex; align-items: center; gap: 9px;"></div>
   </div>
 
-  <div id="tap" style="display: none; position: absolute; inset: 0; border-radius: 36px; background: rgba(241,235,223,0.94); flex-direction: column; align-items: center; justify-content: center; cursor: pointer; gap: 18px; z-index: 30;">
-    <div style="font-size: clamp(26px, 5vw, 46px);">Pozvánka</div>
-    <div style="font-size: clamp(15px, 2.6vw, 22px); color: #E0623A; letter-spacing: 0.08em;">klikni a spusti →</div>
+  <div id="tap" style="display: none; position: absolute; inset: 0; border-radius: 36px; background: rgba(239,234,222,0.94); flex-direction: column; align-items: center; justify-content: center; cursor: pointer; gap: 18px; z-index: 30;">
+    <div style="font-size: clamp(26px, 5cqw, 46px);">Pozvánka</div>
+    <div style="font-size: clamp(15px, 2.6cqw, 22px); color: #E0623A; letter-spacing: 0.08em;">klikni a spusti →</div>
   </div>
 </div>
 <script>
@@ -131,19 +128,19 @@
   var SLIDES_SK = [
     { kind: 'text', label: 'Ohnivý kôň', clips: [0, 1],
       text: 'Narodila som sa v roku Ohnivého koňa (1966) na začiatku generácie X ako tretí prírastok mojim milovaným rodičom.',
-      size: 'clamp(19px, min(3.5vw, 3.9dvh), 40px)' },
+      size: 'clamp(19px, min(3.5cqw, 3.9dvh), 40px)' },
     { kind: 'text', label: 'Vnútorný oheň', clips: [2, 3],
       text: 'Ohnivý kôň miluje slobodu a neustále hľadá nové obzory. Vyzerá to tak, že celých 60 rokov ma poháňal práve tento vnútorný oheň.',
-      size: 'clamp(19px, min(3.5vw, 3.9dvh), 40px)' },
+      size: 'clamp(19px, min(3.5cqw, 3.9dvh), 40px)' },
     { kind: 'text', label: 'KInIT', clips: [4, 5],
       text: 'Keď sa pred šiestimi rokmi zrodil KInIT, cítila som, že osedlať tohto koňa bude veľká výzva.',
-      size: 'clamp(19px, min(3.5vw, 3.9dvh), 40px)' },
+      size: 'clamp(19px, min(3.5cqw, 3.9dvh), 40px)' },
     { kind: 'text', label: 'Kôň sa vracia', clips: [5],
       text: 'Dnes, po 60-tich rokoch, sa Ohnivý kôň vracia. A nie je sám. 6 x 6 rokov v univerzitnom prostredí doma aj v zahraničí objavilo vo mne radosť z tvorivosti a lásku k ľuďom. Ostatných 6 rokov sa v KInITe všetko ešte znásobilo.',
-      size: 'clamp(18px, min(3.2vw, 3.1dvh), 36px)' },
+      size: 'clamp(18px, min(3.2cqw, 3.1dvh), 36px)' },
     { kind: 'text', label: 'Som tu v radosti', clips: [6, 7],
       text: 'A tak som tu v radosti — v kruhu mojej rodiny, priateľov, kolegov. Aj teba. V radosti z cesty, ktorú sme každý sám a trochu aj spolu, prešli.',
-      size: 'clamp(18px, min(3.2vw, 3.1dvh), 36px)' },
+      size: 'clamp(18px, min(3.2cqw, 3.1dvh), 36px)' },
     { kind: 'text', label: 'Pozvanie', clips: [8], noLoop: true,
       text: 'Príď osláviť so mnou, že sa naše cesty stretli.',
       emph: 1.3, italic: true },
@@ -154,19 +151,19 @@
   var SLIDES_EN = [
     { kind: 'text', label: 'Fire Horse', clips: [0, 1],
       text: 'I was born in the Year of the Fire Horse (1966), at the beginning of Generation X, as the third child of my loving parents.',
-      size: 'clamp(19px, min(3.5vw, 3.9dvh), 40px)' },
+      size: 'clamp(19px, min(3.5cqw, 3.9dvh), 40px)' },
     { kind: 'text', label: 'Inner fire', clips: [2, 3],
       text: 'The Fire Horse loves freedom and is always searching for new horizons. Looking back, it seems that this inner fire has been driving me throughout my entire life.',
-      size: 'clamp(19px, min(3.5vw, 3.9dvh), 40px)' },
+      size: 'clamp(19px, min(3.5cqw, 3.9dvh), 40px)' },
     { kind: 'text', label: 'KInIT', clips: [4, 5],
       text: 'When KInIT was born six years ago, I knew that riding this Fire Horse would be one of the greatest adventures of my journey.',
-      size: 'clamp(19px, min(3.5vw, 3.9dvh), 40px)' },
+      size: 'clamp(19px, min(3.5cqw, 3.9dvh), 40px)' },
     { kind: 'text', label: 'The horse returns', clips: [5],
       text: 'Today, as I turn 60, the Fire Horse returns. And it does not return alone. 6 x 6 years in academia, at home and abroad, filled me with the joy of creating and a deep appreciation for people. The past 6 years at KInIT have only multiplied that joy.',
-      size: 'clamp(18px, min(3.2vw, 3.1dvh), 36px)' },
+      size: 'clamp(18px, min(3.2cqw, 3.1dvh), 36px)' },
     { kind: 'text', label: 'Here I am', clips: [6, 7],
       text: 'And so here I am, surrounded by my family, friends, and colleagues. By you. Grateful for the journey each of us has travelled, sometimes on our own, and sometimes together.',
-      size: 'clamp(18px, min(3.2vw, 3.1dvh), 36px)' },
+      size: 'clamp(18px, min(3.2cqw, 3.1dvh), 36px)' },
     { kind: 'text', label: 'Invitation', clips: [8], noLoop: true,
       text: 'Come celebrate with me that our paths have crossed.',
       emph: 1.3, italic: true },
