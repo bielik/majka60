@@ -21,7 +21,7 @@
   a { color: #E0623A; }
   a:hover { color: #2B2723; }
   @keyframes cuePulse { 0%, 100% { transform: translateY(0); box-shadow: 0 0 0 0 rgba(224,98,58,0.35); } 50% { transform: translateY(-3px); box-shadow: 0 0 0 12px rgba(224,98,58,0); } }
-  @keyframes smCycle { 0% { stroke-dashoffset: 100; } 30% { stroke-dashoffset: 0; } 70% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -100; } }
+  @keyframes smPoint { 0%, 100% { transform: translateY(34%); opacity: 0.55; } 50% { transform: translateY(-4%); opacity: 1; } }
   /* style-hover in the Claude Design source becomes real :hover here.
      !important because the runtime writes these same properties inline. */
   #lang:hover { opacity: 1 !important; }
@@ -73,14 +73,33 @@
     <div style="font-size: clamp(17px, min(4.8cqw, 3.4dvh), 38px); line-height: 1.5; text-wrap: pretty;">Mám všetko, čo by som si mohla priať a aj oveľa viac. Preto by som bola veľmi vďačná, keby</div>
     <div style="font-size: clamp(20px, min(5.8cqw, 4.1dvh), 46px); line-height: 1.35; font-style: italic; color: #E0623A; margin-top: min(1.8vh, 18px); text-wrap: pretty;">môj narodeninový dar bol darom nás všetkých.</div>
     <div style="width: 132px; height: 5px; border-radius: 3px; background: rgba(43,39,35,0.18); margin-top: min(3.4vh, 34px);"></div>
-    <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 0.5em 0.75em; margin-top: min(4.4vh, 46px); margin-bottom: min(1.6vh, 16px); font-size: clamp(26px, min(7.6cqw, 5.4dvh), 62px); line-height: 1.35;">
+    <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 0.5em 0.75em; margin-top: min(4.4vh, 46px); margin-bottom: min(3.4vh, 34px); font-size: clamp(26px, min(7.6cqw, 5.4dvh), 62px); line-height: 1.35;">
       <span style="position: relative; display: inline-block;">
         <a class="giftlink" href="https://cestavon.darujme.sk/p2p/narodeninova-zbierka-pre-omamy-maria-bielikova/" target="_blank" rel="noopener" style="position: relative; z-index: 1; color: #2B2723; text-decoration: none; transition: color .25s;">Omamy</a>
       <span style="position: absolute; inset: 0; pointer-events: none;">
-    <div style="position: absolute; left: -11%; right: -11%; top: -26%; bottom: -20%;">
-      <svg viewBox="0 0 100 40" preserveAspectRatio="none" style="width: 100%; height: 100%; overflow: visible; display: block;">
-        <path pathLength="100" d="M 30,4 C 12,6 3,13 4,21 C 5,31 26,37 52,37 C 78,37 97,31 96,21 C 95,11 74,4 48,3 C 33,3 22,6 16,11" fill="none" stroke="#E0623A" stroke-width="2.4" stroke-linecap="round" vector-effect="non-scaling-stroke" style="stroke-dasharray: 100; animation: smCycle 3.4s cubic-bezier(.5,.05,.35,1) infinite;"></path>
-      </svg>
+    <div style="position: absolute; left: 0; right: 0; bottom: -0.06em; height: 2px; background: #E0623A;"></div>
+    <div style="position: absolute; left: 0; right: 0; top: 100%; margin-top: 0.42em; display: flex; align-items: flex-start; justify-content: center; gap: 0.5em;">
+      <div style="width: 0.46em; height: 0.66em; transform: rotate(19deg);">
+        <div style="width: 100%; height: 100%; animation: smPoint 1.6s ease-in-out infinite;">
+          <svg viewBox="0 0 24 30" style="width: 100%; height: 100%; display: block; overflow: visible;">
+            <path d="M 12,29 C 14,20 10,11 12,2 M 4,11 C 7,8 10,5 12,1.5 C 14,5 17,8 20,11" fill="none" stroke="#E0623A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+      </div>
+      <div style="width: 0.46em; height: 0.66em;">
+        <div style="width: 100%; height: 100%; animation: smPoint 1.6s ease-in-out .18s infinite;">
+          <svg viewBox="0 0 24 30" style="width: 100%; height: 100%; display: block; overflow: visible;">
+            <path d="M 12,29 C 10,20 14,11 12,2 M 4,11 C 7,8 10,5 12,1.5 C 14,5 17,8 20,11" fill="none" stroke="#E0623A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+      </div>
+      <div style="width: 0.46em; height: 0.66em; transform: rotate(-19deg);">
+        <div style="width: 100%; height: 100%; animation: smPoint 1.6s ease-in-out .36s infinite;">
+          <svg viewBox="0 0 24 30" style="width: 100%; height: 100%; display: block; overflow: visible;">
+            <path d="M 12,29 C 13,20 11,11 12,2 M 4,11 C 7,8 10,5 12,1.5 C 14,5 17,8 20,11" fill="none" stroke="#E0623A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+      </div>
     </div>
       </span>
       </span>
@@ -88,10 +107,29 @@
       <span style="position: relative; display: inline-block;">
         <a class="giftlink" href="https://dasato.darujme.sk/p2p/narodeninova-zbierka-pre-dasato/" target="_blank" rel="noopener" style="position: relative; z-index: 1; color: #2B2723; text-decoration: none; transition: color .25s;">Dasato</a>
       <span style="position: absolute; inset: 0; pointer-events: none;">
-    <div style="position: absolute; left: -11%; right: -11%; top: -26%; bottom: -20%;">
-      <svg viewBox="0 0 100 40" preserveAspectRatio="none" style="width: 100%; height: 100%; overflow: visible; display: block;">
-        <path pathLength="100" d="M 30,4 C 12,6 3,13 4,21 C 5,31 26,37 52,37 C 78,37 97,31 96,21 C 95,11 74,4 48,3 C 33,3 22,6 16,11" fill="none" stroke="#E0623A" stroke-width="2.4" stroke-linecap="round" vector-effect="non-scaling-stroke" style="stroke-dasharray: 100; animation: smCycle 3.4s cubic-bezier(.5,.05,.35,1) infinite;"></path>
-      </svg>
+    <div style="position: absolute; left: 0; right: 0; bottom: -0.06em; height: 2px; background: #E0623A;"></div>
+    <div style="position: absolute; left: 0; right: 0; top: 100%; margin-top: 0.42em; display: flex; align-items: flex-start; justify-content: center; gap: 0.5em;">
+      <div style="width: 0.46em; height: 0.66em; transform: rotate(19deg);">
+        <div style="width: 100%; height: 100%; animation: smPoint 1.6s ease-in-out infinite;">
+          <svg viewBox="0 0 24 30" style="width: 100%; height: 100%; display: block; overflow: visible;">
+            <path d="M 12,29 C 14,20 10,11 12,2 M 4,11 C 7,8 10,5 12,1.5 C 14,5 17,8 20,11" fill="none" stroke="#E0623A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+      </div>
+      <div style="width: 0.46em; height: 0.66em;">
+        <div style="width: 100%; height: 100%; animation: smPoint 1.6s ease-in-out .18s infinite;">
+          <svg viewBox="0 0 24 30" style="width: 100%; height: 100%; display: block; overflow: visible;">
+            <path d="M 12,29 C 10,20 14,11 12,2 M 4,11 C 7,8 10,5 12,1.5 C 14,5 17,8 20,11" fill="none" stroke="#E0623A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+      </div>
+      <div style="width: 0.46em; height: 0.66em; transform: rotate(-19deg);">
+        <div style="width: 100%; height: 100%; animation: smPoint 1.6s ease-in-out .36s infinite;">
+          <svg viewBox="0 0 24 30" style="width: 100%; height: 100%; display: block; overflow: visible;">
+            <path d="M 12,29 C 13,20 11,11 12,2 M 4,11 C 7,8 10,5 12,1.5 C 14,5 17,8 20,11" fill="none" stroke="#E0623A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+      </div>
     </div>
       </span>
       </span>
@@ -104,14 +142,33 @@
     <div style="font-size: clamp(17px, min(4.8cqw, 3.4dvh), 38px); line-height: 1.5; text-wrap: pretty;">I have everything I could wish for and so much more. Instead of a birthday gift for me, I would be truly grateful if</div>
     <div style="font-size: clamp(20px, min(5.8cqw, 4.1dvh), 46px); line-height: 1.35; font-style: italic; color: #E0623A; margin-top: min(1.8vh, 18px); text-wrap: pretty;">we could make it a gift from all of us.</div>
     <div style="width: 132px; height: 5px; border-radius: 3px; background: rgba(43,39,35,0.18); margin-top: min(3.4vh, 34px);"></div>
-    <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 0.5em 0.75em; margin-top: min(4.4vh, 46px); margin-bottom: min(1.6vh, 16px); font-size: clamp(26px, min(7.6cqw, 5.4dvh), 62px); line-height: 1.35;">
+    <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 0.5em 0.75em; margin-top: min(4.4vh, 46px); margin-bottom: min(3.4vh, 34px); font-size: clamp(26px, min(7.6cqw, 5.4dvh), 62px); line-height: 1.35;">
       <span style="position: relative; display: inline-block;">
         <a class="giftlink" href="https://cestavon.darujme.sk/p2p/narodeninova-zbierka-pre-omamy-maria-bielikova/" target="_blank" rel="noopener" style="position: relative; z-index: 1; color: #2B2723; text-decoration: none; transition: color .25s;">Omamy</a>
       <span style="position: absolute; inset: 0; pointer-events: none;">
-    <div style="position: absolute; left: -11%; right: -11%; top: -26%; bottom: -20%;">
-      <svg viewBox="0 0 100 40" preserveAspectRatio="none" style="width: 100%; height: 100%; overflow: visible; display: block;">
-        <path pathLength="100" d="M 30,4 C 12,6 3,13 4,21 C 5,31 26,37 52,37 C 78,37 97,31 96,21 C 95,11 74,4 48,3 C 33,3 22,6 16,11" fill="none" stroke="#E0623A" stroke-width="2.4" stroke-linecap="round" vector-effect="non-scaling-stroke" style="stroke-dasharray: 100; animation: smCycle 3.4s cubic-bezier(.5,.05,.35,1) infinite;"></path>
-      </svg>
+    <div style="position: absolute; left: 0; right: 0; bottom: -0.06em; height: 2px; background: #E0623A;"></div>
+    <div style="position: absolute; left: 0; right: 0; top: 100%; margin-top: 0.42em; display: flex; align-items: flex-start; justify-content: center; gap: 0.5em;">
+      <div style="width: 0.46em; height: 0.66em; transform: rotate(19deg);">
+        <div style="width: 100%; height: 100%; animation: smPoint 1.6s ease-in-out infinite;">
+          <svg viewBox="0 0 24 30" style="width: 100%; height: 100%; display: block; overflow: visible;">
+            <path d="M 12,29 C 14,20 10,11 12,2 M 4,11 C 7,8 10,5 12,1.5 C 14,5 17,8 20,11" fill="none" stroke="#E0623A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+      </div>
+      <div style="width: 0.46em; height: 0.66em;">
+        <div style="width: 100%; height: 100%; animation: smPoint 1.6s ease-in-out .18s infinite;">
+          <svg viewBox="0 0 24 30" style="width: 100%; height: 100%; display: block; overflow: visible;">
+            <path d="M 12,29 C 10,20 14,11 12,2 M 4,11 C 7,8 10,5 12,1.5 C 14,5 17,8 20,11" fill="none" stroke="#E0623A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+      </div>
+      <div style="width: 0.46em; height: 0.66em; transform: rotate(-19deg);">
+        <div style="width: 100%; height: 100%; animation: smPoint 1.6s ease-in-out .36s infinite;">
+          <svg viewBox="0 0 24 30" style="width: 100%; height: 100%; display: block; overflow: visible;">
+            <path d="M 12,29 C 13,20 11,11 12,2 M 4,11 C 7,8 10,5 12,1.5 C 14,5 17,8 20,11" fill="none" stroke="#E0623A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+      </div>
     </div>
       </span>
       </span>
@@ -119,10 +176,29 @@
       <span style="position: relative; display: inline-block;">
         <a class="giftlink" href="https://dasato.darujme.sk/p2p/narodeninova-zbierka-pre-dasato/" target="_blank" rel="noopener" style="position: relative; z-index: 1; color: #2B2723; text-decoration: none; transition: color .25s;">Dasato</a>
       <span style="position: absolute; inset: 0; pointer-events: none;">
-    <div style="position: absolute; left: -11%; right: -11%; top: -26%; bottom: -20%;">
-      <svg viewBox="0 0 100 40" preserveAspectRatio="none" style="width: 100%; height: 100%; overflow: visible; display: block;">
-        <path pathLength="100" d="M 30,4 C 12,6 3,13 4,21 C 5,31 26,37 52,37 C 78,37 97,31 96,21 C 95,11 74,4 48,3 C 33,3 22,6 16,11" fill="none" stroke="#E0623A" stroke-width="2.4" stroke-linecap="round" vector-effect="non-scaling-stroke" style="stroke-dasharray: 100; animation: smCycle 3.4s cubic-bezier(.5,.05,.35,1) infinite;"></path>
-      </svg>
+    <div style="position: absolute; left: 0; right: 0; bottom: -0.06em; height: 2px; background: #E0623A;"></div>
+    <div style="position: absolute; left: 0; right: 0; top: 100%; margin-top: 0.42em; display: flex; align-items: flex-start; justify-content: center; gap: 0.5em;">
+      <div style="width: 0.46em; height: 0.66em; transform: rotate(19deg);">
+        <div style="width: 100%; height: 100%; animation: smPoint 1.6s ease-in-out infinite;">
+          <svg viewBox="0 0 24 30" style="width: 100%; height: 100%; display: block; overflow: visible;">
+            <path d="M 12,29 C 14,20 10,11 12,2 M 4,11 C 7,8 10,5 12,1.5 C 14,5 17,8 20,11" fill="none" stroke="#E0623A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+      </div>
+      <div style="width: 0.46em; height: 0.66em;">
+        <div style="width: 100%; height: 100%; animation: smPoint 1.6s ease-in-out .18s infinite;">
+          <svg viewBox="0 0 24 30" style="width: 100%; height: 100%; display: block; overflow: visible;">
+            <path d="M 12,29 C 10,20 14,11 12,2 M 4,11 C 7,8 10,5 12,1.5 C 14,5 17,8 20,11" fill="none" stroke="#E0623A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+      </div>
+      <div style="width: 0.46em; height: 0.66em; transform: rotate(-19deg);">
+        <div style="width: 100%; height: 100%; animation: smPoint 1.6s ease-in-out .36s infinite;">
+          <svg viewBox="0 0 24 30" style="width: 100%; height: 100%; display: block; overflow: visible;">
+            <path d="M 12,29 C 13,20 11,11 12,2 M 4,11 C 7,8 10,5 12,1.5 C 14,5 17,8 20,11" fill="none" stroke="#E0623A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+      </div>
     </div>
       </span>
       </span>
