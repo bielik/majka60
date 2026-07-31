@@ -20,9 +20,11 @@
   *::-webkit-scrollbar { width: 0; height: 0; display: none; }
   a { color: #E0623A; }
   a:hover { color: #2B2723; }
+  @keyframes cuePulse { 0%, 100% { transform: translateY(0); box-shadow: 0 0 0 0 rgba(224,98,58,0.35); } 50% { transform: translateY(-3px); box-shadow: 0 0 0 12px rgba(224,98,58,0); } }
   /* style-hover in the Claude Design source becomes real :hover here.
      !important because the runtime writes these same properties inline. */
   #lang:hover { opacity: 1 !important; }
+  #cue:hover { filter: brightness(1.08); }
   #prev:hover, #next:hover { opacity: 0.6 !important; }
   #play:hover { opacity: 0.9 !important; }
   .giftlink:hover { color: #E0623A !important; border-bottom-color: #E0623A !important; }
@@ -109,6 +111,9 @@
   <div id="next" role="button" aria-label="Ďalšie" style="position: absolute; right: 0; top: 0; bottom: 72px; width: 15%; max-width: 140px; z-index: 5; cursor: pointer; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; display: flex; align-items: center; justify-content: flex-end; padding-right: 10px; color: #2B2723; font-size: 30px; opacity: 0.18; transition: opacity .25s;">›</div>
  </div>
   <div style="flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 12px 16px 20px;">
+    <div style="position: absolute; left: 0; right: 0; bottom: clamp(84px, 13dvh, 104px); z-index: 12; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+      <button id="cue" style="display: none; align-items: center; gap: 0.5em; border: none; cursor: pointer; background: #E0623A; color: #EFEADE; font-family: 'Lora', serif; font-size: clamp(16px, min(4.2cqw, 3.4dvh), 26px); padding: 0.55em 1.05em; border-radius: 999px; pointer-events: auto; animation: cuePulse 2.6s ease-in-out infinite; transition: filter .25s;"><span id="cuemain"></span><span style="font-size: 1.15em; line-height: 1;">→</span></button>
+    </div>
     <button id="play" style="border: none; background: none; padding: 6px 10px; cursor: pointer; color: #2B2723; font-size: 19px; line-height: 1; letter-spacing: 0.1em; transition: opacity .25s; font-family: 'Lora', serif;"></button>
     <div id="dots" style="display: flex; align-items: center; gap: 9px;"></div>
   </div>
@@ -180,7 +185,8 @@
 
   var $ = function (id) { return document.getElementById(id); };
   var boxEl = $('videobox'), textBoxEl = $('textbox'), wordsEl = $('words'),
-      dotsEl = $('dots'), playEl = $('play'), langEl = $('lang'), tapEl = $('tap');
+      dotsEl = $('dots'), playEl = $('play'), langEl = $('lang'), tapEl = $('tap'),
+      cueEl = $('cue'), cueMainEl = $('cuemain');
 
   var PANELS = {
     text: $('s-text'),
@@ -397,6 +403,16 @@
     playEl.setAttribute('title', pl);
     playEl.style.opacity = state.autoAdvance ? 0.28 : 0.6;
 
+    // The gift slide never hands over on its own, so make it obvious that
+    // something still follows. Shown on the date and gift slides only, with a
+    // different word on each.
+    var n = slides().length;
+    var showCue = state.idx >= n - 3 && state.idx <= n - 2;
+    cueEl.style.display = showCue ? 'flex' : 'none';
+    cueMainEl.textContent = state.idx === n - 3
+      ? (state.lang === 'sk' ? 'Ešte jedna prosba…' : 'One more request…')
+      : (state.lang === 'sk' ? 'A ešte niečo…' : 'One more thing…');
+
     langEl.textContent = state.lang === 'sk' ? 'English' : 'Slovensky';
     langEl.setAttribute('aria-label', langEl.textContent);
 
@@ -411,6 +427,7 @@
   });
   $('prev').addEventListener('click', prev);
   $('next').addEventListener('click', next);
+  cueEl.addEventListener('click', next);
   playEl.addEventListener('click', function () {
     // Pause freezes where it is; resume hands over to the next slide (the
     // current one has already been read by then).
